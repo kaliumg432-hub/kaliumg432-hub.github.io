@@ -126,7 +126,10 @@ dl.facts dd{text-align:right;font-weight:600;color:var(--ink)}
 .project li{margin-bottom:5px}
 ul.stack{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:8px}
 ul.stack li{font-size:.8rem;padding:2px 10px;border:1px solid var(--line);border-radius:999px;color:var(--muted);margin:0}
+.project .links{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center}
 .project .links a{font-weight:600}
+.project .links a.demo{background:var(--ink);color:var(--paper);text-decoration:none;padding:8px 14px;border-radius:6px}
+.project .links a.demo:hover{filter:brightness(1.15)}
 figure{margin:0;padding:18px}
 figure svg{width:100%;height:auto;display:block}
 figcaption{font-size:.85rem;color:var(--muted);margin-top:10px}
@@ -244,7 +247,7 @@ footer{color:var(--muted);font-size:.85rem;padding:24px 0 40px}
 <section id="work">
   <div class="wrap">
     <h2>Selected work</h2>
-    <p class="intro">Three projects across both tracks: one research model and two systems running in a real business.</p>
+    <p class="intro">Four projects across both tracks: one research model, two apps running in a real business that you can try live, and the spreadsheets behind its finances.</p>
 
     <article class="project">
       <div>
@@ -289,7 +292,7 @@ footer{color:var(--muted);font-size:.85rem;padding:24px 0 40px}
           <li>Answers plain-language questions through an AI assistant that runs the exact numbers locally</li>
         </ul>
         <ul class="stack"><li>React</li><li>JavaScript</li><li>Claude API</li><li>CSV processing</li></ul>
-        <p class="links"><a href="https://github.com/kaliumg432-hub/isp-customer-analytics">View on GitHub</a></p>
+        <p class="links"><a class="demo" href="https://kaliumg432-hub.github.io/isp-customer-analytics/">Try the live demo</a><a href="https://github.com/kaliumg432-hub/isp-customer-analytics">View on GitHub</a></p>
       </div>
       <figure class="panel">
         <svg viewBox="0 0 360 230" role="img" aria-label="Customer spend segments from Casual to VIP, shown as bars of increasing height">
@@ -312,6 +315,37 @@ footer{color:var(--muted);font-size:.85rem;padding:24px 0 40px}
 
     <article class="project">
       <div>
+        <h3>Expense control app</h3>
+        <p class="kind">Built for HappyNet Internet Services</p>
+        <p>An app that turns raw payment exports from the company's Tende wallets into a classified expense register. It checks every bill and salary against the payment that settled it.</p>
+        <ul>
+          <li>Reads messy, misspelt payment remarks and sorts each payment into a category, with a confidence level</li>
+          <li>Matches rent, internet links, caretakers and payroll to their payments, and flags what is overdue</li>
+          <li>Reads quantities and unit costs from remarks like "5 tenda routers" and flags supplier price rises</li>
+          <li>Tracks fuel against usual amounts, catches possible duplicates, and keeps a full history of every correction</li>
+        </ul>
+        <ul class="stack"><li>React</li><li>JavaScript</li><li>Claude API</li><li>Rule-based classification</li></ul>
+        <p class="links"><a class="demo" href="https://kaliumg432-hub.github.io/expense-control-room/">Try the live demo</a><a href="https://github.com/kaliumg432-hub/expense-control-room">View on GitHub</a></p>
+      </div>
+      <figure class="panel">
+        <svg viewBox="0 0 360 230" role="img" aria-label="Payment exports flow through classification into four outputs: bill calendar, payroll check, inventory prices and reports">
+          <rect class="box" x="10" y="92" width="88" height="46" rx="4"/>
+          <text class="t" x="54" y="112" text-anchor="middle">Tende</text><text class="t" x="54" y="128" text-anchor="middle">exports</text>
+          <rect class="boxi" x="128" y="85" width="96" height="60" rx="4"/>
+          <text class="ti" x="176" y="111" text-anchor="middle">Classify</text><text class="ti" x="176" y="128" text-anchor="middle">&amp; match</text>
+          <path class="ln" d="M98 115H128"/>
+          <rect class="box" x="254" y="14" width="96" height="36" rx="4"/><text class="t" x="302" y="37" text-anchor="middle">Bill calendar</text>
+          <rect class="box" x="254" y="68" width="96" height="36" rx="4"/><text class="t" x="302" y="91" text-anchor="middle">Payroll check</text>
+          <rect class="box" x="254" y="122" width="96" height="36" rx="4"/><text class="t" x="302" y="145" text-anchor="middle">Unit prices</text>
+          <rect class="box" x="254" y="176" width="96" height="36" rx="4"/><text class="t" x="302" y="199" text-anchor="middle">Reports</text>
+          <path class="ln" d="M224 115C240 115 238 32 254 32M224 115C240 115 238 86 254 86M224 115C240 115 238 140 254 140M224 115C240 115 238 194 254 194"/>
+        </svg>
+        <figcaption>Every payment is classified once, then reused by each screen.</figcaption>
+      </figure>
+    </article>
+
+    <article class="project">
+      <div>
         <h3>Excel financial systems</h3>
         <p class="kind">Operational tools for a growing ISP</p>
         <p>Workbooks that run day-to-day finance and operations, each built around a single source of truth so reports never drift from the data.</p>
@@ -321,7 +355,6 @@ footer{color:var(--muted);font-size:.85rem;padding:24px 0 40px}
           <li><strong>Equipment inventory:</strong> register, technician assignment log and dashboard</li>
         </ul>
         <ul class="stack"><li>Excel</li><li>INDEX/MATCH</li><li>Conditional logic</li><li>Apps Script</li></ul>
-        <p class="links"><a href="https://github.com/kaliumg432-hub/excel-financial-systems">View on GitHub</a></p>
       </div>
       <figure class="panel">
         <svg viewBox="0 0 360 200" role="img" aria-label="Revenue split into four allocations: 5 percent profit, 20 percent owner pay and debt, 15 percent tax, 60 percent operating expenses">
