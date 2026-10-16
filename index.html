@@ -170,7 +170,7 @@ footer{color:var(--muted);font-size:.85rem;padding:24px 0 40px}
       <h1>Gidraff Mbugua Mwangi</h1>
       <p class="lede">Actuarial Science student at JKUAT and Business Administrator at a Kenyan internet provider. I model risk and build the data systems that turn raw transactions into decisions.</p>
       <div class="serial">
-        <div><strong>Actuarial &amp; risk</strong>Fraud modelling, ensembles, statistics</div>
+        <div><strong>Actuarial &amp; risk</strong>Fraud modelling, model validation, statistics</div>
         <div><strong>Data &amp; finance</strong>M-Pesa analytics, churn, financial systems</div>
         <div><strong>Nairobi, Kenya</strong>Graduating December 2026</div>
       </div>
@@ -238,7 +238,7 @@ footer{color:var(--muted);font-size:.85rem;padding:24px 0 40px}
         <div class="score-row"><span>Model's calls</span><strong id="scModel">0 / 0</strong></div>
         <div class="score-row"><span>Fraud caught</span><strong id="scCaught">0</strong></div>
         <div class="pips" id="pips"></div>
-        <p class="note">A toy logistic model for the game, not the thesis model. My real project stacks XGBoost, an LSTM and a graph neural network.</p>
+        <p class="note">A toy logistic model with made-up weights, built for this game.</p>
       </aside>
     </div>
   </div>
@@ -247,22 +247,22 @@ footer{color:var(--muted);font-size:.85rem;padding:24px 0 40px}
 <section id="work">
   <div class="wrap">
     <h2>Selected work</h2>
-    <p class="intro">Four projects across both tracks: one research model, two apps running in a real business that you can try live, and the Excel system behind its finances.</p>
+    <p class="intro">Four projects across both tracks: a research model and my audit of it, two apps running in a real business that you can try live, and the Excel system behind its finances.</p>
 
     <article class="project">
       <div>
         <h3>Motor insurance fraud detection</h3>
-        <p class="kind">Final-year research project, JKUAT</p>
-        <p>A machine learning ensemble that flags likely fraudulent motor insurance claims in the Kenyan market. Three models each read claims differently, and a meta-learner combines their scores.</p>
-        <p><strong>Result:</strong> F1 of 85.3% and recall of 86.4% on held-out claims, 9.7 points above the best single model, and 82.6% F1 on a simulated Kenyan dataset.</p>
+        <p class="kind">Final-year research project, JKUAT, and my audit of it</p>
+        <p>Our group built a stacked ensemble of XGBoost, an LSTM and a graph neural network to flag fraudulent motor insurance claims, and reported an F1 of 85.3%. When I audited the code after submission, that result did not hold up: the training data had no fraud signal, and every high score came from a pipeline bug.</p>
+        <p><strong>What I did:</strong> traced and reproduced each bug, then rebuilt the ensemble without leaks and proved it works on a planted fraud pattern, where it reached the best score that pattern allows.</p>
         <ul>
-          <li>XGBoost for structured claim and policy features</li>
-          <li>LSTM for patterns that unfold over time</li>
-          <li>Graph neural network for relationships between the parties in a claim</li>
-          <li>Stacked generalisation to combine the three into one fraud score</li>
+          <li>Label leakage: claim narratives written from the fraud label gave a “perfect” text model</li>
+          <li>SMOTE before the split turned pure noise into an AUC of 0.79</li>
+          <li>A row-order bug handed each claim another claim’s prediction</li>
+          <li>A Kenyan validation label built from the models’ own inputs</li>
         </ul>
-        <ul class="stack"><li>Python</li><li>XGBoost</li><li>PyTorch</li><li>R Markdown</li><li>LaTeX</li></ul>
-        <p class="links"><a href="https://github.com/kaliumg432-hub/Motor-insurance-fraud-detection">View on GitHub</a></p>
+        <ul class="stack"><li>Python</li><li>scikit-learn</li><li>XGBoost</li><li>R Markdown</li><li>LaTeX</li></ul>
+        <p class="links"><a href="https://github.com/kaliumg432-hub/Motor-insurance-fraud-detection">Read the audit on GitHub</a></p>
       </div>
       <figure class="panel">
         <svg viewBox="0 0 360 230" role="img" aria-label="Claims data feeds XGBoost, LSTM and GNN models, whose outputs go to a meta-learner that produces a fraud score">
@@ -276,7 +276,7 @@ footer{color:var(--muted);font-size:.85rem;padding:24px 0 40px}
           <path class="ln" d="M226 40 C246 40 246 105 262 105M226 115H262M226 190 C246 190 246 125 262 125"/>
           <text class="tm" x="307" y="168" text-anchor="middle">fraud score</text>
         </svg>
-        <figcaption>Each base model scores the claim; the meta-learner weighs them.</figcaption>
+        <figcaption>The design: each base model scores the claim and the meta-learner weighs them. The audit tested every arrow.</figcaption>
       </figure>
     </article>
 
@@ -595,7 +595,7 @@ footer{color:var(--muted);font-size:.85rem;padding:24px 0 40px}
     const diff = you - model;
     $('endTitle').textContent = `You scored ${you} out of ${ROUNDS}`;
     $('endText').textContent = (diff > 0 ? `You beat the model by ${diff}. ` : diff === 0 ? 'You tied with the model. ' : `The model beat you by ${-diff}. `) +
-      `You caught ${caught} of ${frauds} fraudulent claims. Real fraud is rare and well hidden, which is why my project combines three models instead of trusting one set of rules.`;
+      `You caught ${caught} of ${frauds} fraudulent claims. Real fraud is rare and well hidden, which is why a fraud model has to be validated honestly before anyone trusts its score.`;
     $('againBtn').focus();
   }
   function startGame(){
