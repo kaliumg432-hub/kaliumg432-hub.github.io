@@ -153,8 +153,10 @@ ol.index span{font-size:.85rem;color:var(--muted)}
 .project p{margin:0 0 12px;max-width:38rem}
 .project ul{margin:0 0 16px;padding-left:1.1em}
 .project li{margin-bottom:5px}
-ul.stack{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:8px}
-ul.stack li{font-size:.8rem;padding:2px 10px;border:1px solid var(--line);border-radius:999px;color:var(--muted);margin:0}
+ul.stack{list-style:none;padding:0;display:flex;flex-wrap:wrap;font-size:.88rem;color:var(--muted)}
+ul.stack::before{content:"Built with\00a0"}
+ul.stack li{margin:0}
+ul.stack li+li::before{content:",\00a0"}
 .project .links{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center}
 .project .links a{font-weight:600}
 .project .links a.demo{background:var(--ink);color:var(--paper);text-decoration:none;padding:8px 14px;border-radius:6px}
