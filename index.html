@@ -246,7 +246,7 @@ footer a{color:var(--muted)}
     <div class="hero-inner">
       <p class="status"><i aria-hidden="true"></i>Open to actuarial, insurance analytics and data roles now</p>
       <h1>Gidraff Mbugua Mwangi</h1>
-      <p class="lede">Actuarial Science student at JKUAT and Business Administrator at a Kenyan internet provider. I model risk, check whether models really work, and build the data systems that turn raw transactions into decisions.</p>
+      <p class="lede">Actuarial Science graduate from JKUAT with First Class Honours, and Business Administrator at a Kenyan internet provider. I model risk, check whether models really work, and build the data systems that turn raw transactions into decisions.</p>
       <div class="actions">
         <a class="btn gold" href="#work">See my work</a>
         <a class="btn ghost" href="#bench">Open the workbench</a>
@@ -254,7 +254,7 @@ footer a{color:var(--muted)}
       <div class="ledger">
         <div><strong>Actuarial &amp; risk</strong>Fraud modelling, model validation, statistics</div>
         <div><strong>Data &amp; finance</strong>M-Pesa analytics, churn, financial systems</div>
-        <div><strong>Nairobi, Kenya</strong>Graduating December 2026</div>
+        <div><strong>First Class Honours</strong>BSc Actuarial Science, December 2026 · CS1 passed</div>
       </div>
     </div>
   </div>
@@ -263,13 +263,49 @@ footer a{color:var(--muted)}
 <section id="work">
   <div class="wrap">
     <h2>Selected work</h2>
-    <p class="intro">Four projects across both tracks: a research model and my audit of it, two apps running in a real business that you can try live, and the Excel system behind its finances.</p>
+    <p class="intro">Five projects across both tracks: the operations system a real business now runs on, a research model and my audit of it, two analytics apps you can try live, and the Excel system behind the company's finances.</p>
     <ol class="index">
+      <li><a href="#p-cc"><b>Command Centre</b><span>React, PostgreSQL, in daily use</span></a></li>
       <li><a href="#p-fraud"><b>Fraud model audit</b><span>Python, XGBoost, R</span></a></li>
       <li><a href="#p-isp"><b>Customer analytics app</b><span>React, live demo</span></a></li>
       <li><a href="#p-expense"><b>Expense control app</b><span>React, live demo</span></a></li>
       <li><a href="#p-excel"><b>Profit First workbook</b><span>Excel, download</span></a></li>
     </ol>
+
+    <article class="project" id="p-cc">
+      <div>
+        <h3>HappyNet Command Centre</h3>
+        <p class="kind">Finance and operations system, built for and in daily use at HappyNet Internet Services</p>
+        <p>The system the company now runs its money and customers on. Staff import M-Pesa utility statements and Tende payment reports, and it turns them into revenue, customer, expense and payroll views for the Managing Director, the board, managers and customer care. I designed it, built it and run its releases.</p>
+        <ul>
+          <li>Reconciles every payment: customers by phone, account or M-Pesa code, and bills and salaries against the transfers that settled them, including split and part payments</li>
+          <li>Tracks hotspot hosts, leads and fixed payments, and sends SMS campaigns to chosen customer groups</li>
+          <li>An AI assistant answers staff questions from the whole database, with full tables they can download</li>
+          <li>Per-person access rights decide who sees each area and who can import or export data; the server enforces them</li>
+          <li>More than 25 tested releases in its first two months, each reviewed before going live</li>
+        </ul>
+        <ul class="stack"><li>React</li><li>Supabase (PostgreSQL)</li><li>Netlify Functions</li><li>Claude API</li><li>SMS gateway</li></ul>
+        <p class="links"><span style="color:var(--muted)">Private company system: the code and data are not public.</span></p>
+      </div>
+      <figure class="panel">
+        <svg viewBox="0 0 360 230" role="img" aria-label="M-Pesa statements, Tende payments and router lists flow into the Command Centre, which serves executive, revenue, customer, expense, messaging and assistant views">
+          <rect class="box" x="8" y="30" width="86" height="36" rx="4"/><text class="t" x="51" y="53" text-anchor="middle">M-Pesa</text>
+          <rect class="box" x="8" y="97" width="86" height="36" rx="4"/><text class="t" x="51" y="120" text-anchor="middle">Tende</text>
+          <rect class="box" x="8" y="164" width="86" height="36" rx="4"/><text class="t" x="51" y="187" text-anchor="middle">Routers</text>
+          <rect class="boxi" x="128" y="80" width="98" height="70" rx="4"/>
+          <text class="ti" x="177" y="111" text-anchor="middle">Command</text><text class="ti" x="177" y="128" text-anchor="middle">Centre</text>
+          <path class="ln" d="M94 48C112 48 110 100 128 100M94 115H128M94 182C112 182 110 130 128 130"/>
+          <rect class="box" x="258" y="8" width="94" height="30" rx="4"/><text class="t" x="305" y="28" text-anchor="middle">Executive</text>
+          <rect class="box" x="258" y="45" width="94" height="30" rx="4"/><text class="t" x="305" y="65" text-anchor="middle">Revenue</text>
+          <rect class="box" x="258" y="82" width="94" height="30" rx="4"/><text class="t" x="305" y="102" text-anchor="middle">Customers</text>
+          <rect class="box" x="258" y="119" width="94" height="30" rx="4"/><text class="t" x="305" y="139" text-anchor="middle">Expenses</text>
+          <rect class="box" x="258" y="156" width="94" height="30" rx="4"/><text class="t" x="305" y="176" text-anchor="middle">SMS</text>
+          <rect class="gd" x="258" y="193" width="94" height="30" rx="4"/><text class="ti" x="305" y="213" text-anchor="middle">Assistant</text>
+          <path class="ln" d="M226 115C244 115 240 23 258 23M226 115C244 115 240 60 258 60M226 115C244 115 240 97 258 97M226 115C244 115 240 134 258 134M226 115C244 115 240 171 258 171M226 115C244 115 240 208 258 208"/>
+        </svg>
+        <figcaption>Three raw sources in, one shared set of numbers out to every role.</figcaption>
+      </figure>
+    </article>
 
     <article class="project" id="p-fraud">
       <div>
@@ -504,21 +540,22 @@ footer a{color:var(--muted)}
     <h2>About</h2>
     <div class="about">
       <div>
-        <p>I'm in my final year of a BSc in Actuarial Science at Jomo Kenyatta University of Agriculture and Technology, graduating in December 2026, and preparing for the CM1 actuarial exam.</p>
-        <p>I joined HappyNet Internet Services on industrial attachment as a data analyst and stayed on as Business Administrator and Executive Assistant to the Managing Director. My work sits where finance meets customer data: reconciling payments, tracking churn and building the reports leadership uses to decide.</p>
+        <p>I've completed a BSc in Actuarial Science at Jomo Kenyatta University of Agriculture and Technology with First Class Honours, graduating on 11 December 2026. I've passed the IFoA CS1 exam and I'm sitting CB1 in April 2027.</p>
+        <p>I joined HappyNet Internet Services on industrial attachment as a data analyst and stayed on as Business Administrator and Executive Assistant to the Managing Director. My work sits where finance meets customer data: reconciling payments, tracking churn and building the system leadership uses to decide, the HappyNet Command Centre.</p>
         <p>I'm looking for roles in actuarial and insurance analytics, or in data and financial analysis.</p>
         <h3>Experience and study</h3>
         <ol class="timeline">
-          <li><small>Now</small><b>Business Administrator &amp; Executive Assistant to the MD</b><p>HappyNet Internet Services, Nairobi. Payment reconciliation, churn tracking, financial systems and board reporting.</p></li>
-          <li><small>Before that</small><b>Data Analyst, industrial attachment</b><p>HappyNet Internet Services. Customer and revenue analysis from M-Pesa utility exports.</p></li>
-          <li><small>Graduating December 2026</small><b>BSc Actuarial Science, JKUAT</b><p>Final-year project on motor insurance fraud. Preparing for the IFoA CM1 exam.</p></li>
+          <li><small>Aug 2026 to now</small><b>Business Administrator &amp; Executive Assistant to the MD</b><p>HappyNet Internet Services, Nairobi. Built and runs the Command Centre; payment reconciliation, commissions, churn tracking and board reporting.</p></li>
+          <li><small>Jun to Aug 2026</small><b>Data Analyst, industrial attachment</b><p>HappyNet Internet Services. Customer and revenue analysis from M-Pesa utility exports.</p></li>
+          <li><small>Graduating 11 December 2026</small><b>BSc Actuarial Science, First Class Honours, JKUAT</b><p>Dean's List 2022 and 2023. Final-year project on motor insurance fraud.</p></li>
+          <li><small>Actuarial exams</small><b>IFoA CS1 passed (September 2025)</b><p>Sitting CB1 Business Finance in April 2027.</p></li>
         </ol>
       </div>
       <dl class="skills">
         <dt>Modelling</dt><dd>Gradient boosting, logistic regression, stacked ensembles, cross-validation, hypothesis testing</dd>
         <dt>Model validation</dt><dd>Leakage checks, resampling done inside folds, positive controls, reproducible scripts</dd>
         <dt>Data</dt><dd>Python (pandas, scikit-learn), R, SQL, CSV pipelines, cleaning and reconciliation</dd>
-        <dt>Business tools</dt><dd>Advanced Excel, dashboards, Apps Script, React for internal tools</dd>
+        <dt>Business tools</dt><dd>Advanced Excel, dashboards, Apps Script, React and PostgreSQL (Supabase) for internal tools</dd>
         <dt>Writing</dt><dd>LaTeX, R Markdown, board reports, technical specifications</dd>
         <dt>Certifications</dt><dd>IBM, Cisco</dd>
       </dl>
